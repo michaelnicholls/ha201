@@ -1,0 +1,24 @@
+<html>
+<script>
+  var d = new Date();
+  var dplus = new Date(d.getTime()+(10*60000));
+  var year = d.getUTCFullYear();
+  var month = ("0" + (d.getUTCMonth() + 1)).slice(-2);
+  var date = ("0" + d.getUTCDate()).slice(-2);
+  var hour = ("0" + d.getUTCHours()).slice(-2);
+  var minute = ("0" + d.getUTCMinutes()).slice(-2);
+  var second = ("0" + d.getUTCSeconds()).slice(-2);
+document.write("Execute the secondaray time travel with:<p>");
+document.write("hdbnsutil -sr_timetravel --startTime='"+date+"."+month+"."+year+"-"+hour+"."+minute+"."+second+"' --startMode=replicate");
+
+  var yearplus = dplus.getUTCFullYear();
+  var monthplus = ("0" + (dplus.getUTCMonth() + 1)).slice(-2);
+  var dateplus = ("0" + dplus.getUTCDate()).slice(-2);
+  var hourplus = ("0" + dplus.getUTCHours()).slice(-2);
+  var minuteplus = ("0" + dplus.getUTCMinutes()).slice(-2);
+  var secondplus = ("0" + dplus.getUTCSeconds()).slice(-2);
+document.write("<p>Trigger log replay to 10 minutes after with:<br>");
+document.write("<br>hdbnsutil -sr_recoveruntil --endTime='"+dateplus+"."+monthplus+"."+yearplus+"-"+hourplus+"."+minuteplus+"."+secondplus+"'");
+
+</script>
+</html>
